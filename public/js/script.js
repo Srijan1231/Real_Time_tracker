@@ -7,7 +7,7 @@ if (navigator.geolocation) {
       socket.emit("send-locations", { latitude, longitude });
     },
     (error) => {
-      console.log(`Error (${error.code}): ${error.message}`);
+      console.log(`Error:${error}`);
     },
     {
       enableHighAccuracy: true,
@@ -15,8 +15,6 @@ if (navigator.geolocation) {
       maximumAge: 0,
     }
   );
-} else {
-  console.log("Geolocation is not supported by this browser.");
 }
 
 const map = L.map("map").setView([0, 0], 16);
